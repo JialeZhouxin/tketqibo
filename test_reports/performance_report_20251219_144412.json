@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-19T14:44:12.562460",
+    "generator": "Sim-Fusion Report Generator",
+    "version": "1.0.0",
+    "analysis_type": "performance_comparison",
+    "methods_compared": [
+      "Sim-Fusion",
+      "Qibo Fusion"
+    ]
+  },
+  "sections": [
+    {
+      "title": "Executive Summary",
+      "content": "This report compares the performance of Sim-Fusion (TKET + Qibo fusion) against Qibo's native fusion optimization across 2 metrics. Significant performance differences were detected in 2 metrics. ",
+      "data": {
+        "summary_type": "executive"
+      },
+      "charts": null
+    },
+    {
+      "title": "Statistical Summary",
+      "content": "### Sim_Fusion\n\n| Metric | Mean | Std Dev | Min | Max | CV |\n|--------|------|---------|-----|-----|----|\n| gate_reduction | 15.500 | 0.500 | 14.800 | 16.100 | 0.032 |\n| optimization_time | 0.250 | 0.020 | 0.220 | 0.280 | 0.080 |\n\n### Qibo_Fusion\n\n| Metric | Mean | Std Dev | Min | Max | CV |\n|--------|------|---------|-----|-----|----|\n| gate_reduction | 12.300 | 0.600 | 11.500 | 13.000 | 0.049 |\n| optimization_time | 0.150 | 0.010 | 0.140 | 0.170 | 0.067 |\n\n",
+      "data": {
+        "sim_fusion": {
+          "gate_reduction": 

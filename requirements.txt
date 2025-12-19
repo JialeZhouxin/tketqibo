@@ -1,0 +1,19 @@
+# Core quantum computing libraries
+pytket>=2.11.0
+qibo>=0.1.11
+numpy>=1.26.4
+
+# Scientific computing
+scipy>=1.13.1
+
+# Visualization and progress
+matplotlib>=3.8.0
+tqdm>=4.66.0
+
+# Testing
+pytest>=8.0.0
+hypothesis>=6.0.0
+coverage>=7.0.0
+pytest-cov>=4.0.0
+pytest-mock>=3.10.0
+pytest-timeout>=2.1.0

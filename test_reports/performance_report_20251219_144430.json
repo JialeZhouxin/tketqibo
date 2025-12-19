@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-19T14:44:30.881709",
+    "generator": "Sim-Fusion Report Generator",
+    "version": "1.0.0",
+    "analysis_type": "performance_comparison",
+    "methods_compared": [
+      "Sim-Fusion",
+      "Qibo Fusion"
+    ]
+  },
+  "sections": [
+    {
+      "charts": null,
+      "content": "This report compares the performance of Sim-Fusion (TKET + Qibo fusion) against Qibo's native fusion optimization across 1 metrics. Significant performance differences were detected in 1 metrics. ",
+      "data": {
+        "summary_type": "executive"
+      },
+      "title": "Executive Summary"
+    },
+    {
+      "charts": null,
+      "content": "### Sim_Fusion\n\n| Metric | Mean | Std Dev | Min | Max | CV |\n|--------|------|---------|-----|-----|----|\n\n### Qibo_Fusion\n\n| Metric | Mean | Std Dev | Min | Max | CV |\n|--------|------|---------|-----|-----|----|\n\n",
+      "data": {
+        "sim_fusion": {
+          "gate_reduction": {
+            "mean": 15.5,
+            "stdev": 0.5,
+            "min_val": 14.8,
+            "max_val": 16.1,
+            "n": 5
+          },
+          "optimization_time": {
+            "mean": 0.25,
+            "stdev": 0.02,
+            "min_val": 0.22,
+            "max_val": 0.28,
+            "n": 5
+          }
+        },
+        "qibo_fusion": {
+          "gate_reduction": {
+            "mean": 12.3,
+            "stdev": 0.6,
+            "min_val": 11.5,
+            "max_val": 13.0,
+            "n": 5
+          },
+          "optimization_time": {
+            "mean": 0.15,
+            "stdev": 0.01,
+            "min_val": 0.14,
+            "max_val": 0.17,
+            "n": 5
+          }
+        }
+      },
+      "title": "Statistical Summary"
+    },
+    {
+      "charts": null,
+      "content": "| Metric | Test | Statistic | P-value | Significant? | Effect Size |\n|--------|------|-----------|---------|--------------|-------------|\n| gate_reduction | t_test | 8.4500 | 0.000100 | Yes | 1.800 |\n",
+      "data": {
+        "gate_reduction": {
+          "t_test": {
+            "test_name": "t_test",
+            "statistic": 8.45,
+            "p_value": 0.0001,
+            "is_significant": true,
+            "effect_size": 1.8,
+            "interpretation": "Significant difference detected (large effect size)"
+          }
+        }
+      },
+      "title": "Statistical Significance Testing"
+    },
+    {
+      "charts": null,
+      "content": "1. Strong evidence of difference in gate_reduction - recommend method with better performance\n2. Consider trade-offs between optimization quality and speed\n",
+      "data": {
+        "recommendations": [
+          "Strong evidence of difference in gate_reduction - recommend method with better performance",
+          "Consider trade-offs between optimization quality and speed"
+        ]
+      },
+      "title": "Recommendations"
+    }
+  ],
+  "insights": [
+    {
+      "category": "Performance Optimization",
+      "insight": "Large effect size (1.80) in gate_reduction",
+      "recommendation": "Strongly prefer the better performing method for gate_reduction",
+      "severity": "high",
+      "supporting_data": {
+        "effect_size": 1.8,
+        "p_value": 0.0001
+      }
+    }
+  ],
+  "charts": [],
+  "summary": {
+    "significant_differences": 1,
+    "total_metrics_tested": 1,
+    "high_priority_insights": 1,
+    "key_findings": [
+      "Large effect size (1.80) in gate_reduction"
+    ],
+    "overall_assessment": "Strong evidence of performance differences"
+  }
+}
