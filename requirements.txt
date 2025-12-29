@@ -1,7 +1,10 @@
 # Core quantum computing libraries
-pytket>=2.11.0
 qibo>=0.1.11
+pytket>=2.11.0
 numpy>=1.26.4
+
+# Cross-framework optimization
+qiskit>=0.45.0
 
 # Scientific computing
 scipy>=1.13.1

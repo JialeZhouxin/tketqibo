@@ -368,29 +368,34 @@ def _apply_tket_optimization(circuit: TketCircuit, verbose: bool = False) -> Tup
 def _apply_qibo_fusion(circuit: QiboCircuit, verbose: bool = False) -> QiboCircuit:
     """应用 Qibo fusion 优化到电路.
 
+    将连续的逻辑门融合为酉矩阵块（Unitary Blocks），专门用于加速状态向量模拟。
+    融合后的 FusedGate 存储完整的酉矩阵，在执行时单次应用，显著减少矩阵乘法次数。
+
     Args:
         circuit: 要优化的 Qibo 电路
         verbose: 是否输出详细信息
 
     Returns:
-        优化后的 Qibo 电路
+        优化后的 Qibo 电路，门被融合为 FusedGate 对象
     """
     if verbose:
         print("应用 Qibo fusion 优化...")
 
     start_time = time.time()
 
-    # 使用 Qibo 的内置 fusion 优化
-    # 注意：这里使用基本的 fusion 策略
-    optimized = circuit.copy()
-
-    # 对于包含矩阵融合的情况，需要使用更复杂的方法
-    # 这里简化处理，实际可能需要更详细的 fusion 策略
+    # 使用 Qibo 的 fuse() 方法进行矩阵融合
+    # 这将连续的门合并为单个 FusedGate，存储完整酉矩阵
+    optimized = circuit.fuse()
 
     fusion_time = time.time() - start_time
 
     if verbose:
+        original_gates = circuit.ngates
+        fused_gates = optimized.ngates
+        reduction = original_gates - fused_gates
+        reduction_pct = (reduction / original_gates * 100) if original_gates > 0 else 0
         print(f"Qibo fusion 完成，耗时: {fusion_time:.4f}s")
+        print(f"  门融合: {original_gates} → {fused_gates} (减少 {reduction} 门, {reduction_pct:.1f}%)")
 
     return optimized
 

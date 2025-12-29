@@ -1,44 +1,4 @@
-# quantum-benchmark Specification
-
-## Purpose
-TBD - created by archiving change build-quantum-benchmark-framework. Update Purpose after archive.
-## Requirements
-### Requirement: Quantum Circuit Converter
-系统 SHALL 提供 QIBO Circuit 和 TKET Circuit 之间的双向转换功能。
-
-#### Scenario: 成功转换 QIBO 到 TKET
-- **WHEN** 用户输入一个 QIBO Circuit 对象
-- **AND** 线路包含支持的门类型（H, X, Y, Z, CX, CZ, RX, RY, RZ）
-- **THEN** 系统返回等价的 TKET Circuit 对象
-- **AND** 所有的门操作保持相同的效果
-
-#### Scenario: 成功转换 TKET 到 QIBO
-- **WHEN** 用户输入一个 TKET Circuit 对象
-- **AND** 线路包含支持的门类型
-- **THEN** 系统返回等价的 QIBO Circuit 对象
-- **AND** 转换后的线路状态保真度 > 0.999
-
-#### Scenario: 量子算法电路格式转换
-- **WHEN** 用户创建的量子算法电路需要格式转换
-- **AND** 电路包含复杂的量子门组合（如U门、受控门等）
-- **THEN** 系统正确处理所有门类型的转换
-- **AND** 保持算法功能的完整性
-- **AND** 记录转换过程中的性能开销
-
-### Requirement: TKET Optimization Engine
-系统 SHALL 封装 TKET 的优化策略，提供统一的优化接口。
-
-#### Scenario: 应用 FullPeepholeOptimise
-- **WHEN** 用户调用 optimize_circuit 函数
-- **AND** 指定优化策略为 "full_peephole"
-- **THEN** 系统对输入的 TKET Circuit 应用 FullPeepholeOptimise
-- **AND** 返回优化后的 Circuit
-
-#### Scenario: 应用 RemoveRedundancies
-- **WHEN** 用户调用 optimize_circuit 函数
-- **AND** 指定优化策略为 "remove_redundancies"
-- **THEN** 系统对输入的 TKET Circuit 应用 RemoveRedundancies
-- **AND** 移除所有可约简的门操作
+## MODIFIED Requirements
 
 ### Requirement: Benchmark Experiment Runner
 系统 SHALL 支持执行不同类型的 benchmark 实验。
@@ -70,6 +30,28 @@ TBD - created by archiving change build-quantum-benchmark-framework. Update Purp
 - **THEN** 系统创建不同规模的算法实例
 - **AND** 执行相同的优化策略测试
 - **AND** 分析优化效果随规模变化的趋势
+
+### Requirement: Quantum Circuit Converter
+系统 SHALL 提供 QIBO Circuit 和 TKET Circuit 之间的双向转换功能。
+
+#### Scenario: 成功转换 QIBO 到 TKET
+- **WHEN** 用户输入一个 QIBO Circuit 对象
+- **AND** 线路包含支持的门类型（H, X, Y, Z, CX, CZ, RX, RY, RZ）
+- **THEN** 系统返回等价的 TKET Circuit 对象
+- **AND** 所有的门操作保持相同的效果
+
+#### Scenario: 成功转换 TKET 到 QIBO
+- **WHEN** 用户输入一个 TKET Circuit 对象
+- **AND** 线路包含支持的门类型
+- **THEN** 系统返回等价的 QIBO Circuit 对象
+- **AND** 转换后的线路状态保真度 > 0.999
+
+#### Scenario: 量子算法电路格式转换
+- **WHEN** 用户创建的量子算法电路需要格式转换
+- **AND** 电路包含复杂的量子门组合（如U门、受控门等）
+- **THEN** 系统正确处理所有门类型的转换
+- **AND** 保持算法功能的完整性
+- **AND** 记录转换过程中的性能开销
 
 ### Requirement: Performance Metrics Collection
 系统 SHALL 收集和报告详细的性能指标。
@@ -126,6 +108,8 @@ TBD - created by archiving change build-quantum-benchmark-framework. Update Purp
 - **AND** 提供算法间性能对比分析
 - **AND** 创建算法选择决策矩阵
 - **AND** 生成实际应用场景的优化建议
+
+## ADDED Requirements
 
 ### Requirement: Quantum Algorithm Benchmark Framework
 系统 SHALL 提供专门的量子算法基准测试框架，支持多种量子算法的性能对比分析。
@@ -185,4 +169,3 @@ TBD - created by archiving change build-quantum-benchmark-framework. Update Purp
 - **THEN** 系统提供针对性的优化策略建议
 - **AND** 考虑实时性要求、资源限制、精度需求
 - **AND** 推荐适合的算法和优化配置组合
-

@@ -1,0 +1,204 @@
+{
+  "statistical_summaries": {
+    "gate_reduction_percent": {
+      "mean": 5.7417933448523035,
+      "median": 2.1739130434782594,
+      "std": 8.091051486549725,
+      "min_value": 0.0,
+      "max_value": 33.333333333333336,
+      "q25": 0.0,
+      "q75": 8.901515151515154,
+      "sample_size": 26
+    },
+    "depth_reduction_percent": {
+      "mean": 8.431384120087587,
+      "median": 2.0000000000000018,
+      "std": 10.46781749287773,
+      "min_value": 0.0,
+      "max_value": 33.333333333333336,
+      "q25": 0.0,
+      "q75": 14.28571428571429,
+      "sample_size": 26
+    },
+    "optimization_time": {
+      "mean": 0.001,
+      "median": 0.001,
+      "std": 0.0,
+      "min_value": 0.001,
+      "max_value": 0.001,
+      "q25": 0.001,
+      "q75": 0.001,
+      "sample_size": 26
+    },
+    "total_time": {
+      "mean": 0.0018858817907480092,
+      "median": 0.0010002851486206055,
+      "std": 0.0022011442279306426,
+      "min_value": 0.0,
+      "max_value": 0.00903177261352539,
+      "q25": 0.0009990334510803223,
+      "q75": 0.0019996166229248047,
+      "sample_size": 26
+    }
+  },
+  "performance_patterns": [],
+  "optimization_insights": [],
+  "algorithm_analysis": {
+    "Bell State": {
+      "strategies": {
+        "none": {
+          "avg_gate_reduction": 0.0,
+          "avg_depth_reduction": 0.0,
+          "avg_time": 0.0006667772928873698,
+          "success_rate": 0.5,
+          "sample_size": 3
+        },
+        "qiskit_only": {
+          "avg_gate_reduction": 22.53968253968254,
+          "avg_depth_reduction": 22.53968253968254,
+          "avg_time": 0.0009995301564534504,
+          "success_rate": 0.5,
+          "sample_size": 3
+        }
+      },
+      "total_tests": 6,
+      "avg_gates_before": 5.0,
+      "avg_gates_after": 4.5,
+      "avg_depth_before": 5.0,
+      "avg_depth_after": 4.5
+    },
+    "VQE": {
+      "strategies": {
+        "none": {
+          "avg_gate_reduction": 0.0,
+          "avg_depth_reduction": 0.0,
+          "avg_time": 0.001333157221476237,
+          "success_rate": 0.5,
+          "sample_size": 3
+        },
+        "qiskit_only": {
+          "avg_gate_reduction": 6.440362706347361,
+          "avg_depth_reduction": 15.132275132275133,
+          "avg_time": 0.0013343493143717449,
+          "success_rate": 0.5,
+          "sample_size": 3
+        }
+      },
+      "total_tests": 6,
+      "avg_gates_before": 17.0,
+      "avg_gates_after": 16.5,
+      "avg_depth_before": 7.0,
+      "avg_depth_after": 6.5
+    },
+    "Grover": {
+      "strategies": {
+        "none": {
+          "avg_gate_reduction": 0.0,
+          "avg_depth_reduction": 0.0,
+          "avg_time": 0.0009984970092773438,
+          "success_rate": 0.5,
+          "sample_size": 1
+        },
+        "qiskit_only": {
+          "avg_gate_reduction": 5.263157894736848,
+          "avg_depth_reduction": 11.111111111111116,
+          "avg_time": 0.0010013580322265625,
+          "success_rate": 0.5,
+          "sample_size": 1
+        }
+      },
+      "total_tests": 2,
+      "avg_gates_before": 19.0,
+      "avg_gates_after": 18.5,
+      "avg_depth_before": 9.0,
+      "avg_depth_after": 8.5
+    },
+    "QFT": {
+      "strategies": {
+        "none": {
+          "avg_gate_reduction": 0.0,
+          "avg_depth_reduction": 0.0,
+          "avg_time": 0.004666487375895183,
+          "success_rate": 0.5,
+          "sample_size": 3
+        },
+        "qiskit_only": {
+          "avg_gate_reduction": 10.000000000000002,
+          "avg_depth_reduction": 6.696334331764372,
+          "avg_time": 0.0053446292877197266,
+          "success_rate": 0.5,
+          "sample_size": 3
+        }
+      },
+      "total_tests": 6,
+      "avg_gates_before": 96.66666666666667,
+      "avg_gates_after": 90.83333333333333,
+      "avg_depth_before": 41.0,
+      "avg_depth_after": 39.5
+    },
+    "Deutsch-Jozsa": {
+      "strategies": {
+        "none": {
+          "avg_gate_reduction": 0.0,
+          "avg_depth_reduction": 0.0,
+          "avg_time": 0.0006661415100097656,
+          "success_rate": 0.5,
+          "sample_size": 3
+        },
+        "qiskit_only": {
+          "avg_gate_reduction": 9.027777777777779,
+          "avg_depth_reduction": 25.0,
+          "avg_time": 0.0006666183471679688,
+          "success_rate": 0.5,
+          "sample_size": 3
+        }
+      },
+      "total_tests": 6,
+      "avg_gates_before": 12.0,
+      "avg_gates_after": 11.5,
+      "avg_depth_before": 4.0,
+      "avg_depth_after": 3.5
+    }
+  },
+  "strategy_comparison": {
+    "strategy_performance": {
+      "none": {
+        "avg_gate_reduction": 0.0,
+        "avg_depth_reduction": 0.0,
+        "avg_time": 0.0017689374776986928,
+        "success_rate": 1.0,
+        "sample_size": 13,
+        "gate_reduction_std": 0.0,
+        "depth_reduction_std": 0.0
+      },
+      "qiskit_only": {
+        "avg_gate_reduction": 11.483586689704607,
+        "avg_depth_reduction": 16.862768240175175,
+        "avg_time": 0.002002826103797326,
+        "success_rate": 1.0,
+        "sample_size": 13,
+        "gate_reduction_std": 8.059440079601362,
+        "depth_reduction_std": 8.617259250639732
+      }
+    },
+    "significance_tests": {
+      "none_vs_qiskit_only": {
+        "t_statistic": -5.137411560483207,
+        "p_value": 2.935759964097108e-05,
+        "significant_difference": true,
+        "effect_size": 11.483586689704607
+      }
+    }
+  },
+  "outliers": {
+    "gate_reduction_percent": [
+      {
+        "algorithm": "Bell State",
+        "strategy": "qiskit_only",
+        "n_qubits": 3,
+        "value": 33.333333333333336,
+        "z_score": 3.4101303191987125
+      }
+    ]
+  }
+}

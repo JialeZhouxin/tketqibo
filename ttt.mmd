@@ -1,0 +1,52 @@
+graph TD
+    %% 定义样式
+    classDef software fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef middle fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    classDef hardware fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef database fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,stroke-dasharray: 5 5;
+
+    %% --- 第一层：抽象逻辑 ---
+    subgraph Layer1 ["应用层 (Abstract Layer)"]
+        direction TB
+        A["用户代码: `circuit.add(gates.RX(0))`"]:::software
+        B["Qibo 后端选择: `set_backend('qibolab')`"]:::software
+    end
+
+    %% --- 第二层：编译与合成 ---
+    subgraph Layer2 ["编译与合成层 (Compiler & Synthesis)"]
+        direction TB
+        C["转译器 (Transpiler): 分解为原生门"]:::middle
+        
+        %% 核心逻辑分支
+        D{{"检查 Runcard"}}:::database
+        
+        E["原生门定义 (Native Gate)\n例: RX Pulse"]:::middle
+        
+        F["脉冲参数读取\n(Frequency, Amplitude, Beta)"]:::middle
+        
+        G["脉冲形状合成 (Pulse Synthesis)\n应用 DRAG: G(t) + i*beta*G'(t)"]:::middle
+        
+        H["脉冲序列对象 (PulseSequence)\n包含: I/Q 包络数组 + 时间戳"]:::middle
+    end
+
+    %% --- 第三层：物理执行 ---
+    subgraph Layer3 ["物理执行层 (Execution Layer)"]
+        direction TB
+        I["仪器驱动 (Drivers)\n(Translation to SCPI/Binary)"]:::hardware
+        J["硬件控制器 (AWG/FPGA)\n执行数模转换 (DAC)"]:::hardware
+        K["IQ 混频器 (Mixer)\n上变频至微波频率 (e.g. 4.5GHz)"]:::hardware
+        L(("物理量子比特\n(Quantum Chip)")):::hardware
+    end
+
+    %% --- 连线逻辑 ---
+    A --> B
+    B --> C
+    C -- "查询 'native_gates'" --> D
+    D -.->|"返回物理参数 (Beta, Freq)"| E
+    E --> F
+    F -->|"注入数学模型"| G
+    G -->|"生成波形数据"| H
+    H -->|"发送对象"| I
+    I -->|"TCP/IP 上传指令"| J
+    J -->|"输出中频 I/Q 电压"| K
+    K -->|"发射微波控制脉冲"| L
