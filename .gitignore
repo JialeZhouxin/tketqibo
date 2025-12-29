@@ -1,0 +1,33 @@
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 虚拟环境
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 测试数据
+*.json
+*.html
+
+# 临时文件
+nul
+*.tmp
+*.bak
+*~
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
